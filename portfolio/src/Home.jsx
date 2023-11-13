@@ -24,6 +24,54 @@ function Home() {
     setShowExperience(true);
     setShowProjects(false);
   };
+
+  const experiences = [
+    {
+      logo: LogoAlteriade,
+      title: 'Altériade · Développeur Back-End',
+      date: 'Sept 2022 - Nov 2023',
+      description:
+        'Alteriade est une agence conseil spécialisée en collecte de fonds et communication, au service des associations et fondations.',
+    },
+    {
+      logo: LogoEpitech,
+      title: 'Formation EPITECH Webacadémie · Développeur Web & Mobile',
+      date: 'Nov 2021 - Nov 2023',
+      description:
+        'À la Web@cadémie, on apprend en suivant une méthode par projets. C’est un modèle dynamique, basé sur l’échange, le travail collaboratif et la proximité avec le monde de l’entreprise. On teste, on expérimente, on avance, on se trompe… et on recommence.',
+    },
+    // Add more experiences as needed
+  ];
+
+  const projects = [
+    {
+      name: `Bot Discord`,
+      description: `J'ai développé un bot Discord en utilisant Node.js et SQLite, offrant une expérience interactive aux joueurs en fournissant des informations détaillées sur n'importe quel objet du jeu. Ce projet vise à faciliter la recherche d'informations sur les objets de manière rapide et efficace, directement au sein de l'environnement Discord.`,
+      buttons: [
+        { text: 'Voir site', link: 'https://discordbot.com', show: false },
+        {
+          text: 'Github',
+          link: 'https://github.com/Misa-10/Otomai',
+          show: true,
+        },
+      ],
+    },
+    {
+      name: `Scraper d'Informations pour Wakfu.com`,
+      description: `J'ai développé un scraper basé sur Python pour extraire des informations et actualisées du site wakfu.com. Ce projet vise à faciliter l'accès aux données du jeu Wakfu en automatisant le processus de récupération d'informations cruciales pour les joueurs.`,
+      buttons: [
+        { text: 'Voir site', link: 'https://wakfu-scraper.com', show: false },
+        {
+          text: 'Github',
+          link: 'https://github.com/Misa-10/parse-wakfu-site',
+          show: true,
+        },
+        { text: 'Custom Button', link: 'https://customlink.com', show: false },
+      ],
+    },
+    // Add more projects as needed
+  ];
+
   return (
     <div className="bg-background w-screen h-screen flex flex-row items-center">
       <div className="flex-grow flex flex-col items-center p-8">
@@ -44,7 +92,7 @@ function Home() {
         >
           A propos de moi
         </p>
-        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2"></div>
+        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
         <p
           id="experience"
           className={`text-custom text-2xl mt-8 ${
@@ -55,7 +103,7 @@ function Home() {
         >
           Expérience
         </p>
-        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2"></div>
+        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
         <p
           id="projects"
           className={`text-custom text-2xl mt-8 ${showProjects && 'text-3xl'}`}
@@ -64,11 +112,11 @@ function Home() {
         >
           Projets
         </p>
-        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2"></div>
+        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
       </div>
       {showAbout && (
         <div className="w-1/2 p-8 flex animate-fade-left animate-once animate-delay-250">
-          <p id="description" className="text-text2 text-lg">
+          <p id="description" className="text-custom text-lg">
             Mon parcours a débuté avec ma quête d&#39;optimisation des tâches
             dans un jeu, lorsque j&#39;ai commencé à apprendre la programmation
             de manière autodidacte en créant un bot pixel avec Autoit. Cette
@@ -87,49 +135,59 @@ function Home() {
         </div>
       )}
       {showExperience && (
-        <div className="w-1/2 p-8 animate-fade-left animate-once animate-delay-250">
-          <div id="exp1" className="p-4 rounded-lg mb-4 flex">
-            <div className="mr-4 flex-shrink-0">
-              <img
-                src={LogoAlteriade}
-                alt="Image 1"
-                className="w-14 h-14 rounded-full"
-              />
-            </div>
-            <div>
-              <div className="text-xl">Altériade · Développeur Back-End</div>
-              <div className="text-text2 text-lg mt-2">
-                Sept 2022 - Nov 2023
-              </div>
-              <div className="text-lg text-left mt-4">
-                Alteriade est une agence conseil spécialisée en collecte de
-                fonds et communication, au service des associations et
-                fondations.
-              </div>
-            </div>
-          </div>
-          <div id="exp2" className="p-4 rounded-lg flex mb-4">
-            <div className="mr-4 flex-shrink-0">
-              <img
-                src={LogoEpitech}
-                alt="Image 2"
-                className="w-14 h-14 rounded-full"
-              />
-            </div>
-            <div>
-              <div className="text-xl">
-                Formation EPITECH Webacadémie · Développeur Web & Mobile
-              </div>
-              <div className="text-text2 text-lg mt-2">Nov 2021 - Nov 2023</div>
-              <div className="text-lg text-left mt-4">
-                À la Web@cadémie, on apprend en suivant une méthode par projets.
-                C’est un modèle dynamique, basé sur l’échange, le travail
-                collaboratif et la proximité avec le monde de l’entreprise. On
-                teste, on expérimente, on avance, on se trompe… et on
-                recommence.
+        <div className="w-1/2 p-8 animate-fade-left animate-once animate-delay-250 relative ">
+          {experiences.map((experience, index) => (
+            <div
+              key={index}
+              className={`mb-8 relative overflow-hidden  rounded-lg bg-bglow`}
+            >
+              <div className="experience-gradient top-right"></div>
+              <div className="experience-gradient bottom-left"></div>
+              <div className="p-4 rounded-lg flex relative z-10">
+                <div className="mr-4 flex-shrink-0">
+                  <img
+                    src={experience.logo}
+                    alt={`Experience Logo ${index + 1}`}
+                    className="w-14 h-14 rounded-full"
+                  />
+                </div>
+                <div>
+                  <div className="text-xl text-white">{experience.title}</div>
+                  <div className="text-text2 text-lg mt-2 text-white">
+                    {experience.date}
+                  </div>
+                  <div className="text-lg text-left mt-4 text-white">
+                    {experience.description}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
+      )}
+      {showProjects && (
+        <div className="w-1/2 p-8 animate-fade-left animate-once animate-delay-250 ">
+          {projects.map((project, index) => (
+            <div key={index} className="mb-8">
+              <h2 className="text-custom text-2xl font-bold">{project.name}</h2>
+              <p className="text-text2 text-lg mt-2">{project.description}</p>
+
+              {project.buttons.map(
+                (button, buttonIndex) =>
+                  button.show && (
+                    <a
+                      key={buttonIndex}
+                      href={button.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 bg-gradient-to-r from-accent to-primary text-white px-3 py-2 rounded-md text-sm mr-3"
+                    >
+                      {button.text}
+                    </a>
+                  ),
+              )}
+            </div>
+          ))}
         </div>
       )}
     </div>

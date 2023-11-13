@@ -11,6 +11,7 @@ module.exports = {
         accent: '#4917de',
         text2: '#808080',
         white: '#ffffff',
+        bglow: '#11141e',
       },
     },
   },
