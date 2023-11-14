@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LogoAlteriade from './Assets/img/Alteriade.jpeg';
 import LogoEpitech from './Assets/img/Epitech.jpeg';
+import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import icons from react-icons
 
 function Home() {
   const [showAbout, setShowAbout] = useState(true);
@@ -69,68 +70,110 @@ function Home() {
         { text: 'Custom Button', link: 'https://customlink.com', show: false },
       ],
     },
-    // Add more projects as needed
+    {
+      name: `Météo - Pollen - Pollution Application Mobile`,
+      description: `Cette application tout-en-un vous offre des prévisions météorologiques précises, le suivi du pollen et des indices de pollution, le tout dans une interface fluide. Développée en Flutter. 
+
+      De plus, recevez des alertes personnalisées : soyez averti lorsqu'il y a un niveau élevé de pollen ou de pollution, et même si vous pratiquez trop de sport dans des conditions défavorables. Vous en permet d'envoyer automatiquement des alertes à un proche.`,
+
+      buttons: [
+        { text: 'Voir site', link: 'https://wakfu-scraper.com', show: false },
+        {
+          text: 'Github',
+          link: 'https://github.com/Misa-10/WeatherApp',
+          show: true,
+        },
+        { text: 'Custom Button', link: 'https://customlink.com', show: false },
+      ],
+    },
   ];
 
   return (
-    <div className="bg-background w-screen h-screen flex flex-row items-center">
-      <div className="flex-grow flex flex-col items-center p-8">
-        <h1 id="name" className="text-custom text-6xl font-bold">
-          Quentin Brenas
-        </h1>
-        <p id="work" className="text-custom text-2xl mt-12">
-          Développeur Full Stack Web & Mobile
-        </p>
-        <p id="language" className="text-text2 text-lg mt-4">
-          PHP - React - Javascript - CSS - Laravel - Tailwind CSS - Git
-        </p>
-        <p
-          id="about"
-          className={`text-custom text-2xl mt-8 ${showAbout && 'text-3xl'}`}
-          onMouseEnter={toggleAbout}
-          style={{ cursor: 'pointer' }}
-        >
-          A propos de moi
-        </p>
-        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
-        <p
-          id="experience"
-          className={`text-custom text-2xl mt-8 ${
-            showExperience && 'text-3xl'
-          }`}
-          onMouseEnter={toggleExperience}
-          style={{ cursor: 'pointer' }}
-        >
-          Expérience
-        </p>
-        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
-        <p
-          id="projects"
-          className={`text-custom text-2xl mt-8 ${showProjects && 'text-3xl'}`}
-          onMouseEnter={toggleProjects}
-          style={{ cursor: 'pointer' }}
-        >
-          Projets
-        </p>
-        <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
+    <div className="bg-background w-screen min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-y-auto">
+      <div className="flex flex-col items-center p-4 place-content-between">
+        <div className="flex items-center space-x-4">
+          {/* GitHub Icon */}
+          <a
+            href="https://github.com/misa-10"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub size={32} color="#333" />
+          </a>
+          {/* LinkedIn Icon */}
+          <a
+            href="https://www.linkedin.com/in/quentin-brenas-b31392230/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-4"
+          >
+            <FaLinkedin size={32} color="#0077b5" />
+          </a>
+        </div>
+        <div className="flex-grow flex flex-col items-center p-8 animate-fade animate-once animate-delay-[300ms]">
+          <h1 id="name" className="text-custom text-6xl font-bold">
+            Quentin Brenas
+          </h1>
+          <p id="work" className="text-custom text-2xl mt-12">
+            Développeur Full Stack Web & Mobile
+          </p>
+          <p id="language" className="text-text2 text-lg mt-4">
+            PHP - React - Javascript - CSS - Laravel - Tailwind CSS - Git
+          </p>
+          <p
+            id="about"
+            className={`text-custom text-2xl mt-8 ${showAbout && 'text-3xl'}`}
+            onMouseEnter={toggleAbout}
+            style={{ cursor: 'pointer' }}
+          >
+            A propos de moi
+          </p>
+          <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
+          <p
+            id="experience"
+            className={`text-custom text-2xl mt-8 ${
+              showExperience && 'text-3xl'
+            }`}
+            onMouseEnter={toggleExperience}
+            style={{ cursor: 'pointer' }}
+          >
+            Expérience
+          </p>
+          <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
+          <p
+            id="projects"
+            className={`text-custom text-2xl mt-8 ${
+              showProjects && 'text-3xl'
+            }`}
+            onMouseEnter={toggleProjects}
+            style={{ cursor: 'pointer' }}
+          >
+            Projets
+          </p>
+          <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
+        </div>
       </div>
       {showAbout && (
-        <div className="w-1/2 p-8 flex animate-fade-left animate-once animate-delay-250">
+        <div className="w-1/2 p-8 animate-fade-left animate-once animate-delay-250">
+          <div className="flex flex-col items-center mb-4">
+            <h2 className="text-custom text-2xl font-bold">Qui suis-je ?</h2>
+            <div className="w-16 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
+          </div>
           <p id="description" className="text-custom text-lg">
-            Mon parcours a débuté avec ma quête d&#39;optimisation des tâches
-            dans un jeu, lorsque j&#39;ai commencé à apprendre la programmation
+            Mon parcours a débuté avec ma quête d&apos;optimisation des tâches
+            dans un jeu, lorsque j&apos;ai commencé à apprendre la programmation
             de manière autodidacte en créant un bot pixel avec Autoit. Cette
             aventure a constitué mes premiers pas dans le monde du code. <br />
-            <br /> Plus tard, j&#39;ai rejoint l&#39;école EPITECH pour une
-            durée de deux ans, au cours de laquelle j&#39;ai participé à de
+            <br /> Plus tard, j&apos;ai rejoint l&apos;école EPITECH pour une
+            durée de deux ans, au cours de laquelle j&apos;ai participé à de
             nombreux projets variés, utilisant divers langages de programmation.
-            Durant ma deuxième année à EPITECH, j&#39;ai eu l&#39;opportunité de
-            réaliser une année d&#39;alternance chez Alteriade, une agence
+            Durant ma deuxième année à EPITECH, j&apos;ai eu l&apos;opportunité
+            de réaliser une année d&apos;alternance chez Alteriade, une agence
             spécialisée dans le conseil en communication et le fundraising.{' '}
             <br />
-            <br /> L&#39;expérience acquise chez Alteriade, ainsi que les
-            compétences développées à EPITECH, m&#39;ont préparé à me lancer en
-            tant que freelance aujourd&#39;hui !
+            <br /> L&apos;expérience acquise chez Alteriade, ainsi que les
+            compétences développées à EPITECH, m&apos;ont préparé à me lancer en
+            tant que freelance aujourd&apos;hui !
           </p>
         </div>
       )}
