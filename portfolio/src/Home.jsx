@@ -90,39 +90,41 @@ function Home() {
 
   return (
     <div className="bg-background w-screen min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-y-auto">
-      <div className="flex flex-col items-center p-4 place-content-between">
-        <div className="flex items-center space-x-4">
-          {/* GitHub Icon */}
-          <a
-            href="https://github.com/misa-10"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub size={32} color="#333" />
-          </a>
-          {/* LinkedIn Icon */}
-          <a
-            href="https://www.linkedin.com/in/quentin-brenas-b31392230/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-4"
-          >
-            <FaLinkedin size={32} color="#0077b5" />
-          </a>
-        </div>
+      <div className="flex flex-col items-center p-4">
         <div className="flex-grow flex flex-col items-center p-8 animate-fade animate-once animate-delay-[300ms]">
-          <h1 id="name" className="text-custom text-6xl font-bold">
+          <h1 id="name" className="text-custom sm:text-6xl text-4xl font-bold">
             Quentin Brenas
           </h1>
-          <p id="work" className="text-custom text-2xl mt-12">
+          <p id="work" className="text-custom sm:text-2xl text-xl mt-12">
             Développeur Full Stack Web & Mobile
           </p>
-          <p id="language" className="text-text2 text-lg mt-4">
+          <p id="language" className="text-text2 sm:text-lg text-base mt-4">
             PHP - React - Javascript - CSS - Laravel - Tailwind CSS - Git
           </p>
+          <div className="flex items-center space-x-4 mt-4">
+            {/* GitHub Icon */}
+            <a
+              href="https://github.com/misa-10"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub size={32} color="#333" />
+            </a>
+            {/* LinkedIn Icon */}
+            <a
+              href="https://www.linkedin.com/in/quentin-brenas-b31392230/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-4"
+            >
+              <FaLinkedin size={32} color="#0077b5" />
+            </a>
+          </div>
           <p
             id="about"
-            className={`text-custom text-2xl mt-8 ${showAbout && 'text-3xl'}`}
+            className={`text-custom mt-8 ${
+              showAbout && 'sm:text-3xl text-2xl'
+            } ${!showAbout && 'sm:text-2xl text-xl'}`}
             onMouseEnter={toggleAbout}
             style={{ cursor: 'pointer' }}
           >
@@ -131,9 +133,9 @@ function Home() {
           <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
           <p
             id="experience"
-            className={`text-custom text-2xl mt-8 ${
-              showExperience && 'text-3xl'
-            }`}
+            className={`text-custom mt-8 ${
+              showExperience && 'sm:text-3xl text-2xl'
+            } ${!showExperience && 'sm:text-2xl text-xl'}`}
             onMouseEnter={toggleExperience}
             style={{ cursor: 'pointer' }}
           >
@@ -142,9 +144,9 @@ function Home() {
           <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
           <p
             id="projects"
-            className={`text-custom text-2xl mt-8 ${
-              showProjects && 'text-3xl'
-            }`}
+            className={`text-custom mt-8 ${
+              showProjects && 'sm:text-3xl text-2xl'
+            } ${!showProjects && 'sm:text-2xl text-xl'}`}
             onMouseEnter={toggleProjects}
             style={{ cursor: 'pointer' }}
           >
@@ -154,12 +156,14 @@ function Home() {
         </div>
       </div>
       {showAbout && (
-        <div className="w-1/2 p-8 animate-fade-left animate-once animate-delay-250">
+        <div className="lg:w-1/2 w-10/12 p-8 animate-fade-left animate-once animate-delay-250">
           <div className="flex flex-col items-center mb-4">
-            <h2 className="text-custom text-2xl font-bold">Qui suis-je ?</h2>
+            <h2 className="text-custom sm:text-2xl text-xl font-bold">
+              Qui suis-je ?
+            </h2>
             <div className="w-16 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
           </div>
-          <p id="description" className="text-custom text-lg">
+          <p id="description" className="text-custom sm:text-lg text-base">
             Mon parcours a débuté avec ma quête d&apos;optimisation des tâches
             dans un jeu, lorsque j&apos;ai commencé à apprendre la programmation
             de manière autodidacte en créant un bot pixel avec Autoit. Cette
@@ -178,7 +182,7 @@ function Home() {
         </div>
       )}
       {showExperience && (
-        <div className="w-1/2 p-8 animate-fade-left animate-once animate-delay-250 relative ">
+        <div className="w-3/4 lg:w-1/2 sm:p-8 animate-fade-left animate-once animate-delay-250 relative ">
           {experiences.map((experience, index) => (
             <div
               key={index}
@@ -186,8 +190,8 @@ function Home() {
             >
               <div className="experience-gradient top-right"></div>
               <div className="experience-gradient bottom-left"></div>
-              <div className="p-4 rounded-lg flex relative z-10">
-                <div className="mr-4 flex-shrink-0">
+              <div className="p-4 rounded-lg flex relative z-10 lg:flex-row flex-col lg:items-start items-center">
+                <div className="mr-4 flex-shrink-0 lg:mb-O mb-3">
                   <img
                     src={experience.logo}
                     alt={`Experience Logo ${index + 1}`}
@@ -195,11 +199,13 @@ function Home() {
                   />
                 </div>
                 <div>
-                  <div className="text-xl text-white">{experience.title}</div>
-                  <div className="text-text2 text-lg mt-2 text-white">
+                  <div className="sm:text-xl text-lg text-white">
+                    {experience.title}
+                  </div>
+                  <div className="text-text2 sm:text-lg text-base mt-2 text-white">
                     {experience.date}
                   </div>
-                  <div className="text-lg text-left mt-4 text-white">
+                  <div className="sm:text-lg text-base lg:text-left text-center mt-4 text-white">
                     {experience.description}
                   </div>
                 </div>
@@ -209,11 +215,15 @@ function Home() {
         </div>
       )}
       {showProjects && (
-        <div className="w-1/2 p-8 animate-fade-left animate-once animate-delay-250 ">
+        <div className="lg:w-1/2 w-10/12 p-8 animate-fade-left animate-once animate-delay-250 ">
           {projects.map((project, index) => (
             <div key={index} className="mb-8">
-              <h2 className="text-custom text-2xl font-bold">{project.name}</h2>
-              <p className="text-text2 text-lg mt-2">{project.description}</p>
+              <h2 className="text-custom sm:text-2xl text-xl font-bold">
+                {project.name}
+              </h2>
+              <p className="text-text2 sm:text-lg text-base mt-2 sm:mb-0 mb-2">
+                {project.description}
+              </p>
 
               {project.buttons.map(
                 (button, buttonIndex) =>
@@ -223,7 +233,7 @@ function Home() {
                       href={button.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-3 bg-gradient-to-r from-accent to-primary text-white px-3 py-2 rounded-md text-sm mr-3"
+                      className="mt-3 bg-gradient-to-r from-accent to-primary text-white px-3 py-2 rounded-md sm:text-sm text-xs mr-3 "
                     >
                       {button.text}
                     </a>
