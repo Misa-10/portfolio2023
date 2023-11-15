@@ -89,7 +89,7 @@ function Home() {
   ];
 
   return (
-    <div className="bg-background w-screen min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-y-auto">
+    <div className="bg-background w-screen min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-y-auto overflow-x-hidden">
       <div className="flex flex-col items-center p-4">
         <div className="flex-grow flex flex-col items-center p-8 animate-fade animate-once animate-delay-[300ms]">
           <h1 id="name" className="text-custom sm:text-6xl text-4xl font-bold">
