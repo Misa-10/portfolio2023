@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LogoAlteriade from './Assets/img/Alteriade.jpeg';
 import LogoEpitech from './Assets/img/Epitech.jpeg';
+import CVFR from './Assets/CVFR.pdf';
 import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import icons from react-icons
 
 function Home() {
@@ -99,7 +100,8 @@ function Home() {
             Développeur Full Stack Web & Mobile
           </p>
           <p id="language" className="text-text2 sm:text-lg text-base mt-4">
-            PHP - React - Javascript - CSS - Laravel - Tailwind CSS - Git
+            PHP - React - Javascript - HTML/CSS - Laravel - Tailwind CSS -
+            Flutter - Git
           </p>
           <div className="flex items-center space-x-4 mt-4">
             {/* GitHub Icon */}
@@ -178,6 +180,16 @@ function Home() {
             <br /> L&apos;expérience acquise chez Alteriade, ainsi que les
             compétences développées à EPITECH, m&apos;ont préparé à me lancer en
             tant que freelance aujourd&apos;hui !
+          </p>
+          <p
+            id="learn-more"
+            className="text-custom mt-4 sm:text-lg text-base underline cursor-pointer hover:text-accent transition-colors duration-300"
+            onMouseEnter={toggleAbout}
+            style={{ cursor: 'pointer' }}
+          >
+            <a href={CVFR} target="_blank" rel="noopener noreferrer">
+              En savoir plus sur moi
+            </a>
           </p>
         </div>
       )}
