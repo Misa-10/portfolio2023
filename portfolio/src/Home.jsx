@@ -220,7 +220,7 @@ function Home() {
                   <div className="text-text2 sm:text-lg text-base mt-2 text-white sm:text-center text-left">
                     {experience.date}
                   </div>
-                  <div className="sm:text-lg text-base lg:text-left  mt-4 text-white sm:text-center text-left">
+                  <div className="sm:text-lg text-base mt-4 text-white sm:text-center text-left">
                     {experience.description}
                   </div>
                 </div>
