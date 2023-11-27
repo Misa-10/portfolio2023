@@ -165,7 +165,10 @@ function Home() {
             </h2>
             <div className="w-16 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
           </div>
-          <p id="description" className="text-custom sm:text-lg text-base">
+          <p
+            id="description"
+            className="text-custom sm:text-lg text-base sm:text-center text-left"
+          >
             Mon parcours a débuté avec ma quête d&apos;optimisation des tâches
             dans un jeu, lorsque j&apos;ai commencé à apprendre la programmation
             de manière autodidacte en créant un bot pixel avec Autoit. Cette
@@ -211,13 +214,13 @@ function Home() {
                   />
                 </div>
                 <div>
-                  <div className="sm:text-xl text-lg text-white">
+                  <div className="sm:text-xl text-lg text-white sm:text-center text-left">
                     {experience.title}
                   </div>
-                  <div className="text-text2 sm:text-lg text-base mt-2 text-white">
+                  <div className="text-text2 sm:text-lg text-base mt-2 text-white sm:text-center text-left">
                     {experience.date}
                   </div>
-                  <div className="sm:text-lg text-base lg:text-left text-center mt-4 text-white">
+                  <div className="sm:text-lg text-base lg:text-left  mt-4 text-white sm:text-center text-left">
                     {experience.description}
                   </div>
                 </div>
@@ -230,10 +233,10 @@ function Home() {
         <div className="lg:w-1/2 w-10/12 p-8 animate-fade-left animate-once animate-delay-250 ">
           {projects.map((project, index) => (
             <div key={index} className="mb-8">
-              <h2 className="text-custom sm:text-2xl text-xl font-bold">
+              <h2 className="text-custom sm:text-2xl text-xl font-bold sm:text-center text-left">
                 {project.name}
               </h2>
-              <p className="text-text2 sm:text-lg text-base mt-2 sm:mb-0 mb-2">
+              <p className="text-text2 sm:text-lg text-base sm:text-center text-left mt-2 sm:mb-0 mb-2">
                 {project.description}
               </p>
 
