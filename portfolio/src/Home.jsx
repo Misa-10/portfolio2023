@@ -103,14 +103,14 @@ function Home() {
             PHP - React - Javascript - HTML/CSS - Laravel - Tailwind CSS -
             Flutter - Git
           </p>
-          <div className="flex items-center space-x-4 mt-4">
+          <div className="flex items-center space-x-4 mt-4 ">
             {/* GitHub Icon */}
             <a
               href="https://github.com/misa-10"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub size={32} color="#333" />
+              <FaGithub size={32} color="#fff" />
             </a>
             {/* LinkedIn Icon */}
             <a
