@@ -47,6 +47,22 @@ function Home() {
 
   const projects = [
     {
+      name: `MyDeals`,
+      description: `J'ai développé une Plateforme collaborative de partage de promotions. Projets qui a été fait en Node.js , React , PostgreSQL`,
+      buttons: [
+        {
+          text: 'Voir site',
+          link: 'https://mydeal-front.vercel.app/',
+          show: true,
+        },
+        {
+          text: 'Github',
+          link: 'https://github.com/Misa-10/mydeal',
+          show: true,
+        },
+      ],
+    },
+    {
       name: `Bot Discord`,
       description: `J'ai développé un bot Discord en utilisant Node.js et SQLite, offrant une expérience interactive aux joueurs en fournissant des informations détaillées sur n'importe quel objet du jeu. Ce projet vise à faciliter la recherche d'informations sur les objets de manière rapide et efficace, directement au sein de l'environnement Discord.`,
       buttons: [
@@ -230,7 +246,7 @@ function Home() {
         </div>
       )}
       {showProjects && (
-        <div className="lg:w-1/2 w-10/12 p-8 animate-fade-left animate-once animate-delay-250 ">
+        <div className="lg:w-1/2 w-10/12 p-8 animate-fade-left animate-once animate-delay-250 max-h-screen overflow-y-auto">
           {projects.map((project, index) => (
             <div key={index} className="mb-8">
               <h2 className="text-custom sm:text-2xl text-xl font-bold sm:text-center text-left">
