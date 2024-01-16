@@ -246,7 +246,7 @@ function Home() {
         </div>
       )}
       {showProjects && (
-        <div className="lg:w-1/2 w-10/12 p-8 animate-fade-left animate-once animate-delay-250 max-h-screen overflow-y-auto">
+        <div className="lg:w-1/2 w-10/12 p-8 animate-fade-left animate-once animate-delay-250 lg:max-h-screen lg:overflow-y-auto">
           {projects.map((project, index) => (
             <div key={index} className="mb-8">
               <h2 className="text-custom sm:text-2xl text-xl font-bold sm:text-center text-left">
