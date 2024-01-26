@@ -10,22 +10,25 @@ function Home() {
   const [showExperience, setShowExperience] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
 
-  const toggleProjects = () => {
-    setShowAbout(false);
-    setShowExperience(false);
-    setShowProjects(true);
-  };
-
   const toggleAbout = () => {
+    setCurrentGradient(gradientColors.about);
     setShowAbout(true);
     setShowExperience(false);
     setShowProjects(false);
   };
 
   const toggleExperience = () => {
+    setCurrentGradient(gradientColors.experience);
     setShowAbout(false);
     setShowExperience(true);
     setShowProjects(false);
+  };
+
+  const toggleProjects = () => {
+    setCurrentGradient(gradientColors.projects);
+    setShowAbout(false);
+    setShowExperience(false);
+    setShowProjects(true);
   };
 
   const { t } = useTranslation();
@@ -46,6 +49,14 @@ function Home() {
   ];
 
   const projects = t('projects', { returnObjects: true });
+
+  const gradientColors = {
+    about: 'from-accent to-primary',
+    experience: 'from-yellow to-lightyellow',
+    projects: 'from-blue to-lightblue',
+  };
+
+  const [currentGradient, setCurrentGradient] = useState(gradientColors.about);
 
   return (
     <div className="bg-background min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-y-auto overflow-x-hidden">
@@ -89,7 +100,9 @@ function Home() {
           >
             {t('aboutToggle')}
           </p>
-          <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
+          <div
+            className={` w-1/4 h-2  mt-2 rounded-full bg-gradient-to-r ${currentGradient} `}
+          ></div>
           <p
             id="experience"
             className={`text-custom mt-8 ${
@@ -100,7 +113,9 @@ function Home() {
           >
             {t('experienceToggle')}
           </p>
-          <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
+          <div
+            className={`w-1/4 h-2  mt-2 rounded-full bg-gradient-to-r ${currentGradient} `}
+          ></div>
           <p
             id="projects"
             className={`text-custom mt-8 ${
@@ -111,7 +126,9 @@ function Home() {
           >
             {t('projectsToggle')}
           </p>
-          <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
+          <div
+            className={`w-1/4 h-2  mt-2 rounded-full bg-gradient-to-r ${currentGradient} `}
+          ></div>
         </div>
       </div>
       {showAbout && (
@@ -196,7 +213,7 @@ function Home() {
                       href={button.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-3 bg-gradient-to-r from-accent to-primary text-white px-3 py-2 rounded-md sm:text-sm text-xs mr-3 "
+                      className={`mt-3 text-white px-3 py-2 rounded-md sm:text-sm text-xs mr-3 bg-gradient-to-r ${currentGradient} `}
                     >
                       {button.text}
                     </a>
