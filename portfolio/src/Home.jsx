@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import LogoAlteriade from './Assets/img/Alteriade.jpeg';
 import LogoEpitech from './Assets/img/Epitech.jpeg';
 import CVFR from './Assets/CVFR.pdf';
-import { FaGithub, FaLinkedin } from 'react-icons/fa'; // Import icons from react-icons
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
   const [showAbout, setShowAbout] = useState(true);
@@ -27,97 +28,37 @@ function Home() {
     setShowProjects(false);
   };
 
+  const { t } = useTranslation();
+
   const experiences = [
     {
       logo: LogoAlteriade,
-      title: 'Altériade · Développeur Back-End',
-      date: 'Sept 2022 - Nov 2023',
-      description:
-        'Alteriade est une agence conseil spécialisée en collecte de fonds et communication, au service des associations et fondations.',
+      title: t('experiences.0.title'),
+      date: t('experiences.0.date'),
+      description: t('experiences.0.description'),
     },
     {
       logo: LogoEpitech,
-      title: 'Formation EPITECH Webacadémie · Développeur Web & Mobile',
-      date: 'Nov 2021 - Nov 2023',
-      description:
-        'À la Web@cadémie, on apprend en suivant une méthode par projets. C’est un modèle dynamique, basé sur l’échange, le travail collaboratif et la proximité avec le monde de l’entreprise. On teste, on expérimente, on avance, on se trompe… et on recommence.',
-    },
-    // Add more experiences as needed
-  ];
-
-  const projects = [
-    {
-      name: `MyDeals`,
-      description: `J'ai développé une Plateforme collaborative de partage de promotions. Projets qui a été fait en Node.js , React , PostgreSQL`,
-      buttons: [
-        {
-          text: 'Voir site',
-          link: 'https://mydeal-front.vercel.app/',
-          show: true,
-        },
-        {
-          text: 'Github',
-          link: 'https://github.com/Misa-10/mydeal',
-          show: true,
-        },
-      ],
-    },
-    {
-      name: `Bot Discord`,
-      description: `J'ai développé un bot Discord en utilisant Node.js et SQLite, offrant une expérience interactive aux joueurs en fournissant des informations détaillées sur n'importe quel objet du jeu. Ce projet vise à faciliter la recherche d'informations sur les objets de manière rapide et efficace, directement au sein de l'environnement Discord.`,
-      buttons: [
-        { text: 'Voir site', link: 'https://discordbot.com', show: false },
-        {
-          text: 'Github',
-          link: 'https://github.com/Misa-10/Otomai',
-          show: true,
-        },
-      ],
-    },
-    {
-      name: `Scraper d'Informations pour Wakfu.com`,
-      description: `J'ai développé un scraper basé sur Python pour extraire des informations et actualisées du site wakfu.com. Ce projet vise à faciliter l'accès aux données du jeu Wakfu en automatisant le processus de récupération d'informations cruciales pour les joueurs.`,
-      buttons: [
-        { text: 'Voir site', link: 'https://wakfu-scraper.com', show: false },
-        {
-          text: 'Github',
-          link: 'https://github.com/Misa-10/parse-wakfu-site',
-          show: true,
-        },
-        { text: 'Custom Button', link: 'https://customlink.com', show: false },
-      ],
-    },
-    {
-      name: `Météo - Pollen - Pollution Application Mobile`,
-      description: `Cette application tout-en-un vous offre des prévisions météorologiques précises, le suivi du pollen et des indices de pollution, le tout dans une interface fluide. Développée en Flutter. 
-
-      De plus, recevez des alertes personnalisées : soyez averti lorsqu'il y a un niveau élevé de pollen ou de pollution, et même si vous pratiquez trop de sport dans des conditions défavorables. Vous en permet d'envoyer automatiquement des alertes à un proche.`,
-
-      buttons: [
-        { text: 'Voir site', link: 'https://wakfu-scraper.com', show: false },
-        {
-          text: 'Github',
-          link: 'https://github.com/Misa-10/WeatherApp',
-          show: true,
-        },
-        { text: 'Custom Button', link: 'https://customlink.com', show: false },
-      ],
+      title: t('experiences.1.title'),
+      date: t('experiences.1.date'),
+      description: t('experiences.1.description'),
     },
   ];
+
+  const projects = t('projects', { returnObjects: true });
 
   return (
     <div className="bg-background min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-y-auto overflow-x-hidden">
       <div className="flex flex-col items-center p-4">
         <div className="flex-grow flex flex-col items-center p-8 animate-fade animate-once animate-delay-[300ms]">
           <h1 id="name" className="text-custom sm:text-6xl text-4xl font-bold">
-            Quentin Brenas
+            {t('name')}
           </h1>
           <p id="work" className="text-custom sm:text-2xl text-xl mt-12">
-            Développeur Full Stack Web & Mobile
+            {t('work')}
           </p>
           <p id="language" className="text-text2 sm:text-lg text-base mt-4">
-            PHP - React - Javascript - HTML/CSS - Laravel - Tailwind CSS -
-            Flutter - Git
+            {t('language')}
           </p>
           <div className="flex items-center space-x-4 mt-4 ">
             {/* GitHub Icon */}
@@ -146,7 +87,7 @@ function Home() {
             onMouseEnter={toggleAbout}
             style={{ cursor: 'pointer' }}
           >
-            A propos de moi
+            {t('aboutToggle')}
           </p>
           <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
           <p
@@ -157,7 +98,7 @@ function Home() {
             onMouseEnter={toggleExperience}
             style={{ cursor: 'pointer' }}
           >
-            Expérience
+            {t('experienceToggle')}
           </p>
           <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
           <p
@@ -168,7 +109,7 @@ function Home() {
             onMouseEnter={toggleProjects}
             style={{ cursor: 'pointer' }}
           >
-            Projets
+            {t('projectsToggle')}
           </p>
           <div className="w-1/4 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
         </div>
@@ -177,7 +118,7 @@ function Home() {
         <div className="lg:w-1/2 w-10/12 p-8 animate-fade-left animate-once animate-delay-250">
           <div className="flex flex-col items-center mb-4">
             <h2 className="text-custom sm:text-2xl text-xl font-bold">
-              Qui suis-je ?
+              {t('aboutMe')}
             </h2>
             <div className="w-16 h-2 bg-gradient-to-r from-accent to-primary mt-2 rounded-full"></div>
           </div>
@@ -185,20 +126,11 @@ function Home() {
             id="description"
             className="text-custom sm:text-lg text-base sm:text-center text-left"
           >
-            Mon parcours a débuté avec ma quête d&apos;optimisation des tâches
-            dans un jeu, lorsque j&apos;ai commencé à apprendre la programmation
-            de manière autodidacte en créant un bot pixel avec Autoit. Cette
-            aventure a constitué mes premiers pas dans le monde du code. <br />
-            <br /> Plus tard, j&apos;ai rejoint l&apos;école EPITECH pour une
-            durée de deux ans, au cours de laquelle j&apos;ai participé à de
-            nombreux projets variés, utilisant divers langages de programmation.
-            Durant ma deuxième année à EPITECH, j&apos;ai eu l&apos;opportunité
-            de réaliser une année d&apos;alternance chez Alteriade, une agence
-            spécialisée dans le conseil en communication et le fundraising.{' '}
+            {t('textAboutMe1')} <br />
+            <br /> {t('textAboutMe2')}
             <br />
-            <br /> L&apos;expérience acquise chez Alteriade, ainsi que les
-            compétences développées à EPITECH, m&apos;ont préparé à me lancer en
-            tant que freelance aujourd&apos;hui !
+            <br />
+            {t('textAboutMe3')}
           </p>
           <p
             id="learn-more"
@@ -207,7 +139,7 @@ function Home() {
             style={{ cursor: 'pointer' }}
           >
             <a href={CVFR} target="_blank" rel="noopener noreferrer">
-              En savoir plus sur moi
+              {t('learnMoreButton')}
             </a>
           </p>
         </div>
