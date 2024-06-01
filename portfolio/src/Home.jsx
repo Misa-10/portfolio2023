@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LogoAlteriade from './Assets/img/Alteriade.jpeg';
 import LogoEpitech from './Assets/img/Epitech.jpeg';
-import CVFR from './Assets/CVFR.pdf';
+import CVFR from './Assets/CV_3.pdf';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 
